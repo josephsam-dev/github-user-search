@@ -8,21 +8,17 @@ function App() {
 
   const handleSearch = async (username) => {
     const result = await searchUser(username);
-    console.log(result); // See API response in console
+    console.log(result);
     setUser(result);
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-start p-8 bg-gray-900 text-white">
-      <h1 className="text-4xl font-bold mb-6">GitHub User Search</h1>
+    <div style={{ padding: "2rem", fontFamily: "Arial, sans-serif" }}>
+      <h1 className="text-3xl font-bold mb-4">GitHub User Search</h1>
 
       <SearchForm onSearch={handleSearch} />
 
-      {!user && (
-        <p className="mt-6 text-gray-400">
-          Start by searching for a GitHub user above!
-        </p>
-      )}
+      {!user && <p className="mt-4">Start by searching for a GitHub user above!</p>}
 
       {user && <UserCard user={user} />}
     </div>
