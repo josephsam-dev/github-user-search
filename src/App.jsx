@@ -13,12 +13,12 @@ function App() {
   };
 
   return (
-    <div style={{ padding: "2rem", fontFamily: "Arial, sans-serif" }}>
-      <h1 className="text-3xl font-bold mb-4">GitHub User Search</h1>
+    <div className="p-8 font-sans bg-gray-100 min-h-screen">
+      <h1 className="text-3xl font-bold mb-4 text-center">GitHub User Search</h1>
 
       <SearchForm onSearch={handleSearch} />
 
-      {!user && <p className="mt-4">Start by searching for a GitHub user above!</p>}
+      {!user && <p className="mt-4 text-center">Start by searching for a GitHub user above!</p>}
 
       {user && <UserCard user={user} />}
     </div>

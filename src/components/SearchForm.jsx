@@ -5,21 +5,24 @@ function SearchForm({ onSearch }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (username.trim() !== "") {
-      onSearch(username.trim());
-    }
+    if (!username) return;
+    onSearch(username);
+    setUsername("");
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-2">
+    <form onSubmit={handleSubmit} className="mb-4 text-center">
       <input
         type="text"
         placeholder="Enter GitHub username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        className="border p-2 rounded flex-1"
+        className="border p-2 rounded w-64"
       />
-      <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+      <button
+        type="submit"
+        className="ml-2 bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+      >
         Search
       </button>
     </form>
